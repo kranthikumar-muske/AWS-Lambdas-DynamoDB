@@ -1,4 +1,4 @@
-package com.family.tree.lambda.functions.getOps;
+package com.extracode;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import com.family.tree.lambda.functions.putOps.FamilyTreeSetters;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public class GetProfileByIdLambda extends FamilyTreeSetters implements RequestHandler<GetHttpRequest, GetHttpResponse> {
+public class GetParentsLambda extends FamilyTreeSetters implements RequestHandler<GetHttpRequest, GetHttpResponse> {
 	private GetDAO getDAO;
 	
-	public GetProfileByIdLambda() {
+	public GetParentsLambda() {
 		final Injector injector = Guice.createInjector(new DynamoDBModule());
 		this.getDAO = injector.getInstance(GetDAO.class);
 	}
@@ -24,8 +24,8 @@ public class GetProfileByIdLambda extends FamilyTreeSetters implements RequestHa
     @Override
     public GetHttpResponse handleRequest(GetHttpRequest request, Context context) {
         context.getLogger().log("request: " + request);
-       
-        List<ReplyPOJO> result = getDAO.getProfileById(request.getQueryStringParameters().get("userid"));
+        
+        List<ReplyPOJO> result = getDAO.getParentsInfoByChildId(request.getQueryStringParameters().get("childuserid"));
         
         return new GetHttpResponse(result);
     }
