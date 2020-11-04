@@ -113,6 +113,7 @@ public class GetDAOImpl implements GetDAO{
 	    	   FamilyTreeTablePOJO familyTreeTablePOJO= (FamilyTreeTablePOJO) tree;
 	    	   if(familyTreeTablePOJO.getRelationship().equals("myself")) {
 	    		   myself = familyTreeTablePOJO;
+	    		   spouse=null;
 	    	   }else {
 	    		   continue;
 	    	   }
