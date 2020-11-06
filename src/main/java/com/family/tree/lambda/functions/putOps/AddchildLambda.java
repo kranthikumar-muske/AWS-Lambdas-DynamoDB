@@ -10,12 +10,12 @@ import com.family.tree.lambda.functions.putOps.requests.PutChildHttpRequest;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public class AddchildLambda extends FamilyTreeSetters implements RequestHandler<PutChildHttpRequest, PutHttpResponse> {
+public class AddChildLambda extends FamilyTreeSetters implements RequestHandler<PutChildHttpRequest, PutHttpResponse> {
 	private PutDAO putDAO;
 	private GenerateRandomUUID generateRandomUUID;
 
 	
-	public AddchildLambda() {
+	public AddChildLambda() {
 		final Injector injector = Guice.createInjector(new DynamoDBModule());
 		this.putDAO = injector.getInstance(PutDAO.class);
 		this.generateRandomUUID = injector.getInstance(GenerateRandomUUID.class);

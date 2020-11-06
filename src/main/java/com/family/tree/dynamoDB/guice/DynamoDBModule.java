@@ -13,6 +13,7 @@ import com.family.tree.dynamoDB.DAO.impl.GetDAOImpl;
 import com.family.tree.dynamoDB.DAO.impl.PutDAOImpl;
 import com.family.tree.dynamoDB.DAO.impl.UpdateDAOImpl;
 import com.family.tree.dynamoDB.util.GenerateRandomUUID;
+import com.family.tree.sns.SNSModule;
 import com.google.inject.AbstractModule;
 
 public class DynamoDBModule extends AbstractModule{
@@ -27,6 +28,7 @@ public class DynamoDBModule extends AbstractModule{
 		bind(UpdateDAO.class).to(UpdateDAOImpl.class);
 		bind(DeleteDAO.class).to(DeleteDAOImpl.class);
 		bind(GenerateRandomUUID.class).toInstance(new GenerateRandomUUID());
+		install(new SNSModule());
 	}
 
 }

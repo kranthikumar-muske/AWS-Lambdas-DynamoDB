@@ -36,7 +36,7 @@ public class PutDAOTest {
         FamilyTreeTablePOJO father = new FamilyTreeTablePOJO();
         father.setUserId("user_"+"123");
         father.setRelationship("myself");
-        father.setFirstName("Rajalingaiah");
+        father.setFirstName("Anusha");
         father.setLastName("Muske");
         father.setBirthPlace("HMPT");
         father.setDob("01011960");
